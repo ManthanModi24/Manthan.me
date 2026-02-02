@@ -1,0 +1,14 @@
+.cell{
+  height: 64px;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 12px;
+  background: #020617;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.2s;
+  color: white;
+}
+
+.cell:hover{
+  background: #020b1c;
+}

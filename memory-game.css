@@ -1,0 +1,23 @@
+.card {
+  height: 60px;
+  border-radius: 12px;
+  background: #020617;
+  border: 1px solid rgba(255,255,255,0.1);
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.card:hover {
+  background: #020b1c;
+}
+
+.matched {
+  background: #064e3b !important;
+  color: #34d399;
+  cursor: default;
+}

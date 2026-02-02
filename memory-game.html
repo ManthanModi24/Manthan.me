@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Card Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="memory-game.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#020617] via-[#020b1c] to-[#020617] text-white">
+
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="bg-[#0f172a]/80 backdrop-blur p-8 rounded-2xl shadow-xl border border-white/10 w-[90%] max-w-md text-center">
+
+    <h1 class="text-2xl font-bold mb-2">🧠 Memory Card Game</h1>
+    <p id="status" class="text-gray-300 mb-4">Find all matching pairs!</p>
+
+    <div id="game" class="grid grid-cols-4 gap-3 w-64 mx-auto mb-6"></div>
+
+    <button onclick="resetGame()" class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold">
+      Restart Game
+    </button>
+
+    <a href="index.html" class="block mt-6 text-blue-400 hover:underline">
+      ← Back to Portfolio
+    </a>
+
+  </div>
+
+  <script src="memory-game.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess The Number</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="guess-number.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#020617] via-[#020b1c] to-[#020617] text-white">
+
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="card w-[90%] max-w-md text-center">
+
+    <h1 class="text-2xl font-bold mb-2">🎯 Guess The Number</h1>
+    <p class="text-gray-400 mb-2">Guess a number between <b>1 and 100</b></p>
+
+    <p class="text-sm text-gray-400 mb-4">
+      Tries: <span id="tries" class="text-white font-bold">0</span>
+    </p>
+
+    <input
+      id="guess"
+      type="number"
+      min="1"
+      max="100"
+      placeholder="Enter your guess"
+      class="input"
+    >
+
+    <button onclick="checkGuess()" class="btn">
+      Check
+    </button>
+
+    <div id="result" class="text-lg text-gray-300 mb-3"></div>
+
+    <div class="text-left mb-3">
+      <p class="text-sm text-gray-400 mb-1">Guess History:</p>
+      <div id="history" class="history">
+        No guesses yet.
+      </div>
+    </div>
+
+    <button onclick="resetGame()" class="text-sm text-blue-400 hover:underline">
+      Reset Game
+    </button>
+
+    <a href="index.html" class="block mt-6 text-blue-400 hover:underline">
+      ← Back to Portfolio
+    </a>
+
+  </div>
+
+  <script src="guess-number.js"></script>
+</body>
+</html>
