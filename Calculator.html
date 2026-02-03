@@ -1,70 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Futuristic Calculator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="stylesheet" href="calculator.css">
+<meta charset="UTF-8">
+<title>Cyber HUD Calculator v2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="calculator.css">
 </head>
 
-<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#020617] via-[#020b1c] to-[#020617] text-white overflow-hidden">
+<body class="min-h-screen flex items-center justify-center bg-black text-cyan-300 overflow-hidden">
 
-  <div class="fixed inset-0 -z-10">
-    <div class="absolute -top-56 -left-56 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[150px] animate-pulse"></div>
-    <div class="absolute top-1/4 -right-56 w-[500px] h-[500px] bg-cyan-500/30 rounded-full blur-[150px] animate-pulse"></div>
-    <div class="absolute -bottom-56 left-1/3 w-[500px] h-[500px] bg-emerald-500/20 rounded-full blur-[150px] animate-pulse"></div>
+<div class="fixed inset-0 -z-10">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.08),transparent_60%)]"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(transparent_92%,rgba(34,211,238,0.12)_93%)] bg-[length:100%_36px]"></div>
+</div>
+
+<div class="relative w-[400px] p-6 rounded-2xl bg-black/75 border border-cyan-400/30 backdrop-blur-xl shadow-[0_0_80px_rgba(34,211,238,0.4)]">
+
+  <div class="flex justify-between items-center mb-3 text-xs text-cyan-400 tracking-widest">
+    <span>CYBER HUD v2</span>
+    <span id="mode">STANDARD</span>
   </div>
 
-  <div class="relative w-[360px] p-6 rounded-[36px] bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/15 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+  <input id="display" disabled value="0"
+    class="w-full h-20 mb-3 text-right text-4xl px-4 bg-black border border-cyan-400/30 rounded-xl text-cyan-300 shadow-inner animate-pulse">
 
-    <input
-      id="display"
-      type="text"
-      disabled
-      value="0"
-      class="display w-full h-28 mb-6 px-6 text-right text-5xl font-light rounded-3xl bg-black/40 text-white border border-white/10 tracking-wide"
-    >
-
-    <div class="grid grid-cols-4 gap-4">
-
-      <button class="btn light" onclick="clearAll()">AC</button>
-      <button class="btn light" onclick="backspace()">⌫</button>
-      <button class="btn light" onclick="toggleSign()">±</button>
-      <button class="btn op" onclick="append('/')">÷</button>
-
-      <button class="btn num" onclick="append('7')">7</button>
-      <button class="btn num" onclick="append('8')">8</button>
-      <button class="btn num" onclick="append('9')">9</button>
-      <button class="btn op" onclick="append('*')">×</button>
-
-      <button class="btn num" onclick="append('4')">4</button>
-      <button class="btn num" onclick="append('5')">5</button>
-      <button class="btn num" onclick="append('6')">6</button>
-      <button class="btn op" onclick="append('-')">−</button>
-
-      <button class="btn num" onclick="append('1')">1</button>
-      <button class="btn num" onclick="append('2')">2</button>
-      <button class="btn num" onclick="append('3')">3</button>
-      <button class="btn op" onclick="append('+')">+</button>
-
-      <button class="btn num col-span-2 rounded-full" onclick="append('0')">0</button>
-      <button class="btn num" onclick="append('.')">.</button>
-      <button class="btn eq" onclick="calculate()">=</button>
-
-    </div>
-
-    <p class="mt-5 text-center text-xs text-gray-400">
-      Keyboard enabled • Enter = • Esc = Clear
-    </p>
-
-    <a href="index.html" class="block mt-4 text-center text-blue-400 hover:text-blue-300 transition">
-      ← Back to Portfolio
-    </a>
+  <div id="history" class="h-24 mb-4 overflow-y-auto text-xs text-cyan-500 border border-cyan-400/20 rounded-lg p-2">
+    <div>READY…</div>
   </div>
 
-  <script src="calculator.js"></script>
+  <div class="grid grid-cols-5 gap-2 text-sm">
+
+    <button class="btn red" onclick="clr()">CLR</button>
+    <button class="btn" onclick="del()">DEL</button>
+    <button class="btn" onclick="fn('sqrt')">√</button>
+    <button class="btn" onclick="fn('square')">x²</button>
+    <button class="btn op" onclick="add('/')">÷</button>
+
+    <button class="btn" onclick="add('7')">7</button>
+    <button class="btn" onclick="add('8')">8</button>
+    <button class="btn" onclick="add('9')">9</button>
+    <button class="btn" onclick="fn('sin')">sin</button>
+    <button class="btn op" onclick="add('*')">×</button>
+
+    <button class="btn" onclick="add('4')">4</button>
+    <button class="btn" onclick="add('5')">5</button>
+    <button class="btn" onclick="add('6')">6</button>
+    <button class="btn" onclick="fn('cos')">cos</button>
+    <button class="btn op" onclick="add('-')">−</button>
+
+    <button class="btn" onclick="add('1')">1</button>
+    <button class="btn" onclick="add('2')">2</button>
+    <button class="btn" onclick="add('3')">3</button>
+    <button class="btn" onclick="fn('tan')">tan</button>
+    <button class="btn op" onclick="add('+')">+</button>
+
+    <button class="btn col-span-2" onclick="add('0')">0</button>
+    <button class="btn" onclick="add('.')">.</button>
+    <button class="btn" onclick="fn('log')">log</button>
+    <button class="btn eq" onclick="exec()">EXEC</button>
+
+  </div>
+
+  <p class="mt-4 text-center text-xs text-cyan-500">
+    Keyboard Enabled • Scientific Mode Active
+  </p>
+
+  <a href="index.html" class="block mt-3 text-center text-cyan-400 hover:text-cyan-300">
+    ← Return to Portfolio
+  </a>
+</div>
+
+<script src="calculator.js"></script>
 </body>
 </html>
