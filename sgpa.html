@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SGPA Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Tailwind (for background system) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="sgpa.css">
+</head>
+
+<body class="min-h-screen text-white overflow-x-hidden">
+
+<!-- SAME BACKGROUND AS MAIN PAGE -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-[#020617] via-[#020b1c] to-[#020617]"></div>
+
+  <div class="absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-float1"></div>
+  <div class="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl animate-float2"></div>
+  <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-float3"></div>
+</div>
+
+<div class="wrapper">
+
+  <h1>SGPA Calculator</h1>
+  <p class="subtitle">Advanced Semester GPA Tool</p>
+
+  <div class="card">
+
+    <div id="subjects"></div>
+
+    <div class="btn-row">
+      <button onclick="addSubject()">+ Add Subject</button>
+      <button onclick="removeSubject()" class="danger">Remove</button>
+    </div>
+
+    <button class="calculate" onclick="calculateSGPA()">Calculate SGPA</button>
+
+    <div class="result-section">
+      <div class="circle">
+        <span id="sgpaValue">0.00</span>
+      </div>
+
+      <div class="stats">
+        <p>Total Credits: <span id="totalCredits">0</span></p>
+        <p>Total Points: <span id="totalPoints">0</span></p>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="back">← Back to Portfolio</a>
+
+</div>
+
+<script src="sgpa.js"></script>
+</body>
+</html>
